@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Rock Paper Scissors</title>
+</head>
+<body>
+  <h2>PAPER-ROCK-SCISSORS: The 5 Round Console Game</h2>
+  <p>This game is played from the console, so open the console in your browser and type <mark>game();</mark> .</p>
+
+  <script>
+      function computerPlay(){
+        let moves = ["Paper", "Rock", "Scissors"];
+        let getRendomMove = moves[Math.floor(Math.random() * moves.length)];
+        return getRendomMove;
+      }
+
+      function playerPlay(){
+        let ask = prompt("Select the move! R for 'Rock', P for 'Paper' and S for 'Scissors'").toLowerCase();
+        if(ask == "r"){
+          return "Rock";
+        }else if(ask == "p"){
+          return "Paper";
+        }else if(ask == "s"){
+          return "Scissors";
+        }
+      }
+
+      let playerSelection;
+      let computerSelection;
+      let scorePlayer = 0;
+      let scoreComputer = 0;
+
+      function playRound(a,b){
+        if(a === b){
+          return ("It is draw!");
+        }else if(a === "Paper" && b === "Rock" || a === "Rock" && b === "Scissors" || a === "Scissors" && b === "Paper"){
+          scorePlayer += 1;
+          return ("You win! " + a + " beats " + b + "!");
+
+        }else{
+          scoreComputer += 1;
+          return ("You lose! " + b + " beats " + a + "!");
+        }
+      }
+
+      function game(){
+        for(var i = 1; i < 6; i++){
+
+          playerSelection = playerPlay();
+          computerSelection = computerPlay();
+
+    console.log("Round " + i + " -  Player: " + playerSelection + ", Computer: " + computerSelection);
+    console.log(playRound(playerSelection, computerSelection));
+    console.log("Player: " + scorePlayer + " - Computer: " + scoreComputer);
+  }
+  if(scorePlayer > scoreComputer){
+    console.log("YOU WON THE GAME!");
+  }else if(scorePlayer < scoreComputer){
+    console.log("YOU LOST THE GAME!");
+  }else{
+    console.log("NOBODY WINS IN THIS GAME OF CHAMPIONS!");
+  }
+  scorePlayer = 0;
+  scoreComputer = 0;
+}
+//game();
+  </script>
+
+</body>
+</html>
