@@ -104,24 +104,20 @@
     document.getElementById("human-result").textContent = scorePlayer;
     document.getElementById("comp-result").textContent = scoreComputer;
 
-  if(scorePlayer === 5){
-    //document.getElelmentsByTagName("sign").disabled = true;
+  if(scorePlayer === 5){   
     container.appendChild(finalScore);
     finalScore.textContent = `YOU WON THE GAME IN ${i} ROUNDS!`;
     scorePlayer = 0;
     scoreComputer = 0;
     i = 0;
-    replay();
-    //buttons.setAttribute("disabled");
-  }else if(scoreComputer === 5){
-    //document.getElelmentsByTagName("sign").disabled = true;
+    replay();    
+  }else if(scoreComputer === 5){   
     container.appendChild(finalScore);
     finalScore.textContent = `YOU LOST THE GAME IN ${i} ROUNDS!`;
     scorePlayer = 0;
     scoreComputer = 0;
     i = 0;
-    replay();
-    //buttons.setAttribute("disabled");
+    replay();   
   }
 }
 
